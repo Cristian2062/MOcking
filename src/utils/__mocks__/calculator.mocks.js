@@ -1,20 +1,13 @@
-// import * as calculator from '../calculator';
+import 'jest';
 
-// const doASum = () => {
-//     let a = 5;
-//     let b = 10;
+var sum = jest.fn().mockReturnValue(20);
+var dif = jest.fn().mockReturnValue(-20);
 
-//     return calculator.sum(a, b);
-// };
+const calculator = jest.mock('../calculator', () => {
+    return {
+        sum,
+        dif
+    };
+});
 
-// const doADif = () => {
-//     let a = 5;
-//     let b = 10;
-
-//     return calculator.dif(a, b);
-// };
-
-// export {
-//     doASum,
-//     doADif
-// };
+export default calculator;
